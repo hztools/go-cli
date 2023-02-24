@@ -401,8 +401,8 @@ github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
-github.com/stretchr/testify v1.8.0 h1:pSgiaMZlXftHpm5L7V1+rVB+AZJydKsMxsQBIJw4PKk=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
+github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
@@ -902,13 +902,10 @@ hz.tools/cli v0.0.0-20210921025626-69bce78d4375/go.mod h1:RTx1MnwPrpPyeO03WT8FE6
 hz.tools/cli v0.0.0-20211219024244-f853663daccb/go.mod h1:3ZQ7CRkk1L1vM0rbx2/V/+em73JceUueLdAFyZShiC0=
 hz.tools/cli v0.0.0-20220409203020-387065b68a29/go.mod h1:NE2PHTWzI3udEze4DVDKxV4loJDXYRYzHo+yn3CUaYk=
 hz.tools/cli v0.0.0-20220618000042-eb36d3db86dd/go.mod h1:qrR9tCeXtPmtEjScQW3iFnXHuFX/LgNX0omMfYrsgWM=
-hz.tools/fftw v0.0.7 h1:dlGrDyplXQH1MxFY318zTZUSjmFaP1Yi8Oy7U2E/mak=
 hz.tools/fftw v0.0.7/go.mod h1:OD9JWxQJ+uBUDq7amio/juU94OgDTN6LQFATdaGv+Qg=
 hz.tools/fftw v0.0.8 h1:VfUPD5QQOmOa4g2Iw7UUFL695kok74y8ZQMvJTxo6mg=
 hz.tools/fftw v0.0.8/go.mod h1:dPnGn9sKTg7PyyeDhiq6nW3zNyVOuFQ3TtfpUbatmeg=
 hz.tools/nice v0.0.0-20221018032346-6f6e1c9d4b06/go.mod h1:9OtaKfINhnByGQIWxRYKUsJhonHw3Hsjt4C8XdJh05s=
-hz.tools/nice v0.0.0-20221219030408-bb857d731555 h1:Krw5dxXzlCr7ogsSaX1Z6U+b8LVI5RMGGcca4IUsFNg=
-hz.tools/nice v0.0.0-20221219030408-bb857d731555/go.mod h1:HWfe1Wz+889gLpr3J7NiJzr1CVifV3VVI6WPBAD89vU=
 hz.tools/rf v0.0.7 h1:jzIP+Q9We0B1lEZgQp7VTVAPtO/yuTwhNRxkCG/lWOg=
 hz.tools/rf v0.0.7/go.mod h1:wTwZ2xbRvTgaa5S7y34NPMg3YY5hYTlhpBbPlWYcMSE=
 hz.tools/rfcap v0.0.9/go.mod h1:L36XBgK/d0khxEfarBDVOi423lZ6Q1+f9BQFxqF8PpM=
@@ -943,8 +940,6 @@ hz.tools/sdr v0.0.0-20220531110027-088c769d3124/go.mod h1:qugD6ZZ3xbD/2dITod0vbI
 hz.tools/sdr v0.0.0-20220617235907-923155a1272a/go.mod h1:qugD6ZZ3xbD/2dITod0vbIelvmRuwjPlUOulZWqM2uk=
 hz.tools/sdr v0.0.0-20220618033943-cabd54a4bf9f/go.mod h1:qugD6ZZ3xbD/2dITod0vbIelvmRuwjPlUOulZWqM2uk=
 hz.tools/sdr v0.0.0-20221020210118-3331e7cf07cd/go.mod h1:7agICVqU5MU7VmkVnpYOGkQIx83HGjQqagfkEF0HPh4=
-hz.tools/sdr v0.0.0-20221219034929-1ba047e99fe0 h1:wCwQNnTSbVMVaVXTkFb50XmkLyXc6lOUPQm1qhJHfuQ=
-hz.tools/sdr v0.0.0-20221219034929-1ba047e99fe0/go.mod h1:hSZNG4upuUULjZql7l5VuyYr9jkFvnWtn8YAzzhNq2k=
 hz.tools/sdr v0.0.0-20221219061934-cd0f8494c253 h1:b8+SEUgN5Hk2C1Rlw4yXampSoQXGZmmdF46DLIGGSrQ=
 hz.tools/sdr v0.0.0-20221219061934-cd0f8494c253/go.mod h1:+Ij3O1U19gJdoVV9HfY185w6ttLfsbfiaQGm5ap5FCU=
 rsc.io/binaryregexp v0.2.0/go.mod h1:qTv7/COck+e2FymRvadv62gMdZztPaShugOCi3I+8D8=
