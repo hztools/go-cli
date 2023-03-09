@@ -96,10 +96,18 @@ func init() {
 	)
 
 	addSdr(
+		"kerberos-coherent",
+		func(flags *pflag.FlagSet, prefix string) {},
+		func(c *cobra.Command, prefix string) (sdr.Sdr, error) {
+			return kerberos.NewCoherent(fftw.Plan, 0, 1, 2, 3, 0)
+		},
+	)
+
+	addSdr(
 		"kerberos-offset",
 		func(flags *pflag.FlagSet, prefix string) {},
 		func(c *cobra.Command, prefix string) (sdr.Sdr, error) {
-			return kerberos.NewOffset(fftw.Plan, 1, 2, 3, 4, 0)
+			return kerberos.NewOffset(fftw.Plan, 0, 1, 2, 3, 0)
 		},
 	)
 }
