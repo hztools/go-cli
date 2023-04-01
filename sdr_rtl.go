@@ -42,6 +42,7 @@ func init() {
 		func(flags *pflag.FlagSet, prefix string) {
 			flags.String(prefix+"rtl-serial", "", "serial number to use")
 			flags.Uint(prefix+"rtl-device-index", 0, "device index to use")
+			flags.Bool(prefix+"rtl-bias-t", false, "Set bias-T state")
 		},
 		func(c *cobra.Command, prefix string) (sdr.Sdr, error) {
 			flags := c.Flags()
@@ -70,7 +71,19 @@ func init() {
 			if rtlCount < deviceIndex {
 				return nil, fmt.Errorf("rfutil: index isn't valid")
 			}
-			return rtl.New(deviceIndex, 0)
+			dev, err := rtl.New(deviceIndex, 0)
+			if err != nil {
+				return nil, err
+			}
+
+			biasT, err := flags.GetBool(prefix + "rtl-bias-t")
+			if err != nil {
+				return nil, err
+			}
+			if err := dev.SetBiasT(biasT); err != nil {
+				return nil, err
+			}
+			return dev, nil
 		},
 	)
 
