@@ -35,6 +35,7 @@ func init() {
 		"pluto",
 		func(flags *pflag.FlagSet, prefix string) {
 			flags.String(prefix+"pluto-uri", "ip:pluto.local", "plutosdr to connect to")
+			flags.Bool(prefix+"pluto-loopback", false, "Set the PlutoSDR BIST Loopback (be sure gain is set low)")
 		},
 		func(c *cobra.Command, prefix string) (sdr.Sdr, error) {
 			flags := c.Flags()
@@ -42,10 +43,23 @@ func init() {
 			if err != nil {
 				return nil, err
 			}
-			return pluto.OpenWithOptions(uri, pluto.Options{
+			loopback, err := flags.GetBool(prefix + "pluto-loopback")
+			if err != nil {
+				return nil, err
+			}
+			p, err := pluto.OpenWithOptions(uri, pluto.Options{
 				RxBufferLength: 1024,
 				TxBufferLength: 1024 * 32,
 			})
+			if err != nil {
+				return nil, err
+			}
+			if loopback {
+				if err := p.SetLoopback(true); err != nil {
+					return nil, err
+				}
+			}
+			return p, nil
 		},
 	)
 }
