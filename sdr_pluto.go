@@ -36,6 +36,9 @@ func init() {
 		func(flags *pflag.FlagSet, prefix string) {
 			flags.String(prefix+"pluto-uri", "ip:pluto.local", "plutosdr to connect to")
 			flags.Bool(prefix+"pluto-loopback", false, "Set the PlutoSDR BIST Loopback (be sure gain is set low)")
+
+			flags.Uint(prefix+"pluto-kbuf-rx", 0, "Set the number of kernel buffers for the RX channel")
+			flags.Uint(prefix+"pluto-kbuf-tx", 0, "Set the number of kernel buffers for the TX channel")
 		},
 		func(c *cobra.Command, prefix string) (sdr.Sdr, error) {
 			flags := c.Flags()
@@ -47,9 +50,19 @@ func init() {
 			if err != nil {
 				return nil, err
 			}
+			kbufRx, err := flags.GetUint(prefix + "pluto-kbuf-rx")
+			if err != nil {
+				return nil, err
+			}
+			kbufTx, err := flags.GetUint(prefix + "pluto-kbuf-tx")
+			if err != nil {
+				return nil, err
+			}
 			p, err := pluto.OpenWithOptions(uri, pluto.Options{
-				RxBufferLength: 1024,
-				TxBufferLength: 1024 * 32,
+				RxBufferLength:       1024 * 32,
+				TxBufferLength:       1024 * 32,
+				RxKernelBuffersCount: kbufRx,
+				TxKernelBuffersCount: kbufTx,
 			})
 			if err != nil {
 				return nil, err
