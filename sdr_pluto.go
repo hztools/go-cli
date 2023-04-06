@@ -59,8 +59,8 @@ func init() {
 				return nil, err
 			}
 			p, err := pluto.OpenWithOptions(uri, pluto.Options{
-				RxBufferLength:       1024 * 32,
-				TxBufferLength:       1024 * 32,
+				RxBufferLength:       1024 * 3,
+				TxBufferLength:       1024 * 3,
 				RxKernelBuffersCount: kbufRx,
 				TxKernelBuffersCount: kbufTx,
 			})
