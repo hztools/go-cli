@@ -22,7 +22,7 @@ package cli
 
 import (
 	"fmt"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"os"
 	"runtime"
 	"runtime/pprof"
@@ -44,13 +44,13 @@ func Pprof(name string) func() {
 
 	cpuCloser, err := PprofCPU(fmt.Sprintf("%s.cpu", pprofPath))
 	if err != nil {
-		log.Printf("cli.Pprof: error profiling CPU: %s", err)
+		log.WithError(err).Warn("cli.Pprof: error profiling CPU")
 		return func() {}
 	}
 
 	allCloser, err := PprofAll(pprofPath)
 	if err != nil {
-		log.Printf("cli.Pprof: error profiling %s", err)
+		log.WithError(err).Warn("cli.Pprof: error profiling")
 		return func() {}
 	}
 

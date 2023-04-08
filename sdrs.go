@@ -22,7 +22,7 @@ package cli
 
 import (
 	"fmt"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"strconv"
 	"strings"
 
@@ -175,7 +175,10 @@ func LoadSDRWithPrefix(c *cobra.Command, prefix string) (sdr.Sdr, rf.Hz, uint, e
 			frequency = rFrequency
 		}
 
-		log.Printf("Tuned to %s (%s band)\n", frequency, frequency.ITUBandName())
+		log.WithFields(log.Fields{
+			"frequency":      frequency,
+			"frequency.band": frequency.ITUBandName(),
+		}).Info("Center Frequency set")
 	}
 
 	return dev, frequency, sps, nil
