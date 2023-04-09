@@ -74,17 +74,16 @@ func Context(cmd *cobra.Command) (context.Context, context.CancelFunc) {
 		for {
 			sig := <-c
 
-			once.Do(func() {
-				time.Sleep(time.Second * 3)
-				log.Warn("Something hung our exit for 3 seconds. Dumping stack")
-				printStack()
-				os.Exit(1)
-			})
-
 			switch sig {
 			case syscall.SIGTERM, syscall.SIGINT:
 				log.Info("C-c hit, requesting shutdown")
 				cancel()
+				go once.Do(func() {
+					time.Sleep(time.Second * 3)
+					log.Warn("Something hung our exit for 3 seconds. Dumping stack")
+					printStack()
+					os.Exit(1)
+				})
 			}
 		}
 	}()
@@ -94,6 +93,7 @@ func Context(cmd *cobra.Command) (context.Context, context.CancelFunc) {
 
 // RegisterContextFlags will register the --timeout flag for the context.
 func RegisterContextFlags(flags *pflag.FlagSet) {
+	flags.Bool("pprof", false, "enable pprof")
 	flags.Duration("timeout", time.Duration(0), "time to wait before requesting exit")
 }
 
